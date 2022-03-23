@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 function UserInfo(props) {
   var userInfo = props.user ? (
@@ -20,6 +21,7 @@ function UserInfo(props) {
           <a
             className="btn btn-default"
             href={props.user.html_url}
+            target="_blank"
             role="button"
           >
             View details
@@ -30,6 +32,10 @@ function UserInfo(props) {
   ) : null
 
   return userInfo
+}
+
+UserInfo.propTypes = {
+  user: PropTypes.object
 }
 
 export default UserInfo

@@ -1,6 +1,8 @@
 import React from 'react'
 import SearchUser from './SearchUser'
 import UserInfo from './UserInfo'
+import UserRepos from './UserRepos'
+import UserStarred from './UserStarred'
 
 class Github extends React.Component {
   constructor(props) {
@@ -47,9 +49,9 @@ class Github extends React.Component {
           if (this.state.display === 1) {
             return <UserInfo user={this.state.user} />
           } else if (this.state.display === 2) {
-            return <p>Aqui serão listados os repositórios</p>
-          } else {
-            return <p>OPA, aqui é o começo</p>
+            return <UserRepos repos={this.state.repos} />
+          } else if (this.state.display === 3) {
+            return <UserStarred starred={this.state.starred} />
           }
         })()}
       </div>

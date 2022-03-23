@@ -23,15 +23,9 @@ class SearchUser extends React.Component {
         this.props.updateUser(response.data)
       }.bind(this)
     )
-
-    GitHubUser.getStarredByUsername(username.value).then(
-      function (response) {
-        this.props.updateStarred(response.data)
-      }.bind(this)
-    )
   }
 
-  reposInfoBtn = event => {
+  userReposBtn = event => {
     event.preventDefault()
 
     this.setState({ display: 2 })
@@ -44,6 +38,19 @@ class SearchUser extends React.Component {
     )
   }
 
+  userStarredBtn = event => {
+    event.preventDefault()
+
+    this.setState({ display: 3 })
+    this.props.displayCallback(this.state.display)
+
+    GitHubUser.getStarredByUsername(username.value).then(
+      function (response) {
+        this.props.updateStarred(response.data)
+      }.bind(this)
+    )
+  }
+
   saveUsername = event => {
     username = { value: event.target.value }
   }
@@ -51,7 +58,7 @@ class SearchUser extends React.Component {
   render() {
     return (
       <div className="jumbotron">
-        <h1>GitHub Info</h1>
+        <h1>GitHub Search</h1>
         <div className="row">
           <form>
             <div className="form-group">
@@ -63,20 +70,26 @@ class SearchUser extends React.Component {
                 onChange={this.saveUsername}
               />
             </div>
-
             <button
               type="submit"
-              className="btn btn-primary"
+              className="btn btn-primary btn-lg"
               onClick={this.userInfoBtn}
             >
-              Search User
+              Search user
             </button>
             <button
               type="submit"
-              className="btn btn-primary"
-              onClick={this.reposInfoBtn}
+              className="btn btn-primary btn-lg"
+              onClick={this.userReposBtn}
             >
               Repositories
+            </button>
+            <button
+              type="submit"
+              className="btn btn-primary btn-lg"
+              onClick={this.userStarredBtn}
+            >
+              Starred repositories
             </button>
           </form>
         </div>
@@ -86,7 +99,10 @@ class SearchUser extends React.Component {
 }
 
 SearchUser.propTypes = {
-  updateUser: PropTypes.func.isRequired
+  updateUser: PropTypes.func.isRequired,
+  updateRepos: PropTypes.func.isRequired,
+  updateStarred: PropTypes.func.isRequired,
+  displayCallback: PropTypes.func.isRequired
 }
 
 export default SearchUser
