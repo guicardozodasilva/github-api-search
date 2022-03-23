@@ -1,28 +1,26 @@
 import React from 'react'
 import GitHubUser from '../services/GitHubUser'
+import PropTypes from 'prop-types'
 
 let username = ''
 
 class SearchUser extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { value: '' }
+    this.state = { value: '', display: 0 }
 
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.userInfoBtn = this.userInfoBtn.bind(this)
   }
 
-  handleSubmit = event => {
+  userInfoBtn = event => {
     event.preventDefault()
+
+    this.setState({ display: 1 })
+    this.props.displayCallback(this.state.display)
 
     GitHubUser.getByUsername(username.value).then(
       function (response) {
         this.props.updateUser(response.data)
-      }.bind(this)
-    )
-
-    GitHubUser.getReposByUsername(username.value).then(
-      function (response) {
-        this.props.updateRepos(response.data)
       }.bind(this)
     )
 
@@ -31,8 +29,19 @@ class SearchUser extends React.Component {
         this.props.updateStarred(response.data)
       }.bind(this)
     )
+  }
 
-    console.log('opa')
+  reposInfoBtn = event => {
+    event.preventDefault()
+
+    this.setState({ display: 2 })
+    this.props.displayCallback(this.state.display)
+
+    GitHubUser.getReposByUsername(username.value).then(
+      function (response) {
+        this.props.updateRepos(response.data)
+      }.bind(this)
+    )
   }
 
   saveUsername = event => {
@@ -44,7 +53,7 @@ class SearchUser extends React.Component {
       <div className="jumbotron">
         <h1>GitHub Info</h1>
         <div className="row">
-          <form onSubmit={this.handleSubmit}>
+          <form>
             <div className="form-group">
               <label>Username</label>
               <input
@@ -54,14 +63,30 @@ class SearchUser extends React.Component {
                 onChange={this.saveUsername}
               />
             </div>
-            <button type="submit" className="btn btn-primary">
-              Buscar
+
+            <button
+              type="submit"
+              className="btn btn-primary"
+              onClick={this.userInfoBtn}
+            >
+              Search User
+            </button>
+            <button
+              type="submit"
+              className="btn btn-primary"
+              onClick={this.reposInfoBtn}
+            >
+              Repositories
             </button>
           </form>
         </div>
       </div>
     )
   }
+}
+
+SearchUser.propTypes = {
+  updateUser: PropTypes.func.isRequired
 }
 
 export default SearchUser

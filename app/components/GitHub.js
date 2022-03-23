@@ -8,11 +8,18 @@ class Github extends React.Component {
     this.state = {
       user: null,
       repos: [],
-      starred: []
+      starred: [],
+      display: 0
     }
+
     this.updateUser = this.updateUser.bind(this)
     this.updateRepos = this.updateRepos.bind(this)
     this.updateStarred = this.updateStarred.bind(this)
+    this.setDisplay = this.setDisplay.bind(this)
+  }
+
+  setDisplay(display) {
+    this.setState({ display })
   }
 
   updateUser(user) {
@@ -34,12 +41,17 @@ class Github extends React.Component {
           updateUser={this.updateUser}
           updateRepos={this.updateRepos}
           updateStarred={this.updateStarred}
+          displayCallback={this.setDisplay}
         />
-        <UserInfo
-          user={this.state.user}
-          repos={this.state.repos}
-          starred={this.state.starred}
-        />
+        {(() => {
+          if (this.state.display === 1) {
+            return <UserInfo user={this.state.user} />
+          } else if (this.state.display === 2) {
+            return <p>Aqui serão listados os repositórios</p>
+          } else {
+            return <p>OPA, aqui é o começo</p>
+          }
+        })()}
       </div>
     )
   }
