@@ -20,8 +20,8 @@ class Github extends React.Component {
     this.setDisplay = this.setDisplay.bind(this)
   }
 
-  setDisplay(display) {
-    this.setState({ display })
+  setDisplay(newDisplay) {
+    this.setState({ display: newDisplay })
   }
 
   updateUser(user) {
@@ -37,6 +37,15 @@ class Github extends React.Component {
   }
 
   render() {
+    let retorno
+    if (this.state.display === 1) {
+      retorno = <UserInfo user={this.state.user} />
+    } else if (this.state.display === 2) {
+      retorno = <UserRepos repos={this.state.repos} />
+    } else if (this.state.display === 3) {
+      retorno = <UserStarred starred={this.state.starred} />
+    }
+
     return (
       <div className="container">
         <SearchUser
@@ -45,15 +54,7 @@ class Github extends React.Component {
           updateStarred={this.updateStarred}
           displayCallback={this.setDisplay}
         />
-        {(() => {
-          if (this.state.display === 1) {
-            return <UserInfo user={this.state.user} />
-          } else if (this.state.display === 2) {
-            return <UserRepos repos={this.state.repos} />
-          } else if (this.state.display === 3) {
-            return <UserStarred starred={this.state.starred} />
-          }
-        })()}
+        {retorno}
       </div>
     )
   }

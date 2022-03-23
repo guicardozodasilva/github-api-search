@@ -7,16 +7,15 @@ let username = ''
 class SearchUser extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { value: '', display: 0 }
-
-    this.userInfoBtn = this.userInfoBtn.bind(this)
+    this.state = { value: '' }
   }
 
   userInfoBtn = event => {
     event.preventDefault()
 
-    this.setState({ display: 1 })
-    this.props.displayCallback(this.state.display)
+    this.props.displayCallback(1)
+
+    console.log(this.state.display)
 
     GitHubUser.getByUsername(username.value).then(
       function (response) {
@@ -28,8 +27,7 @@ class SearchUser extends React.Component {
   userReposBtn = event => {
     event.preventDefault()
 
-    this.setState({ display: 2 })
-    this.props.displayCallback(this.state.display)
+    this.props.displayCallback(2)
 
     GitHubUser.getReposByUsername(username.value).then(
       function (response) {
@@ -41,8 +39,7 @@ class SearchUser extends React.Component {
   userStarredBtn = event => {
     event.preventDefault()
 
-    this.setState({ display: 3 })
-    this.props.displayCallback(this.state.display)
+    this.props.displayCallback(3)
 
     GitHubUser.getStarredByUsername(username.value).then(
       function (response) {
