@@ -14,19 +14,21 @@ class UserRepos extends React.Component {
   render() {
     var repos = this.props.repos.map(function (repo, key) {
       return (
-        <div key={key} className="thumbnail">
+        <div key={key} className="thumbnail thumbnail-custom">
           <div className="caption">
-            <h3>
-              {repo.name}
-              <span className="badge badge-dark">
-                {repo.stargazers_count} STARS
-              </span>
-            </h3>
-            <p>{repo.description}</p>
+            <div className="text-custom">
+              <h3>
+                {repo.name}
+                <span className="badge badge-custom">
+                  {repo.stargazers_count} STARS
+                </span>
+              </h3>
+            </div>
+            <p className="description-custom">{repo.description}</p>
             <p>
               <a
                 href={repo.html_url}
-                className="btn btn-primary"
+                className="btn btn-primary btn-custom"
                 target="_blank"
                 role="button"
               >
@@ -35,7 +37,7 @@ class UserRepos extends React.Component {
               <a
                 href={repo.html_url + '/issues'}
                 target="_blank"
-                className="btn btn-default"
+                className="btn btn-default btn-custom-2"
                 role="button"
               >
                 Issues ({repo.open_issues})
@@ -48,7 +50,7 @@ class UserRepos extends React.Component {
 
     return (
       <div>
-        <h2>{this.state.reposCount} repositories</h2>
+        <h2 className="text-custom">{this.state.reposCount} repositories</h2>
         {repos}
       </div>
     )

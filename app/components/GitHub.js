@@ -38,6 +38,7 @@ class Github extends React.Component {
 
   render() {
     let retorno
+
     if (this.state.display === 1) {
       retorno = <UserInfo user={this.state.user} />
     } else if (this.state.display === 2) {

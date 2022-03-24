@@ -1,0 +1,128 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*==== VARIABLES =======================*/
+:root {
+  --header-height: 4.5rem;
+
+  /* HSL color mode */
+  --base-color: hsl(263, 90%, 51%);
+  --base-color-second: hsl(254, 32%, 8%);
+  --text-color: hsl(0, 0%, 98%);
+  --text-color-second: hsl(0, 0%, 80%);
+  --body-color: hsl(257, 50%, 7%);
+  --body-color-second: hsl(254, 32%, 8%);
+
+  /* Fonts */
+  --title-font-size: 2.5rem;
+  --subtitle-font-size: 1.8rem;
+
+  --title-font: 'Poppins', sans-serif;
+  --body-font: 'DM Sans', sans-serif;
+}
+
+/*==== index.html =======================*/
+body {
+  background: var(--body-color);
+}
+
+#app {
+  background: var(--body-color);
+}
+
+/*==== SearchUser.js =======================*/
+.jumbotron-custom {
+  padding: 2.5rem 2rem;
+  background: var(--body-color-second);
+  text-align: center;
+  box-shadow: 0rem 0rem 0.75rem rgba(255, 255, 255, 0.08);
+  border-bottom: 0.25rem solid var(--base-color);
+}
+
+.title-custom {
+  font: 700 var(--title-font-size) var(--title-font);
+  color: var(--text-color);
+  -webkit-font-smoothing: auto;
+  text-align: center;
+  margin-bottom: 6rem;
+}
+
+.subtitle-custom {
+  color: var(--text-color);
+}
+
+.form-control-custom {
+  width: 40%;
+  display: inline-flex;
+  text-align: center;
+}
+
+.btn-custom {
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  background-color: var(--base-color);
+  color: var(--text-color);
+  border-color: var(--base-color);
+  height: 3.5rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 2rem;
+  border-radius: 0.25rem;
+  font: 500 1.4rem var(--body-font);
+}
+
+/*==== UserInfo.js =======================*/
+.img-custom {
+  width: 25rem;
+  height: 25rem;
+}
+
+.user-info-custom {
+  padding: 2.5rem 2rem;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
+  border-bottom: 0.25rem solid var(--base-color);
+  background-color: var(--base-color-second);
+  border-radius: 0.375rem 0.375rem 0 0;
+  text-align: center;
+  margin-left: 0.1rem;
+  margin-right: 0.1rem;
+}
+
+/*==== UserRepos.js and UserStarred.js=======================*/
+.thumbnail-custom {
+  background-color: var(--body-color-second);
+  border: none;
+  box-shadow: 0rem 0rem 0.75rem rgba(255, 255, 255, 0.08);
+  border-bottom: 0.25rem solid var(--base-color);
+  border-radius: 0.375rem 0.375rem 0 0;
+  text-align: center;
+}
+
+.text-custom {
+  color: var(--text-color);
+  font: 500 var(--title-font-size) var(--title-font);
+  text-align: center;
+}
+
+.description-custom {
+  color: var(--text-color-second);
+  font: 500 var(--subtitle-font-size) var(--body-font);
+}
+
+.badge-custom {
+  background-color: var(--base-color);
+  margin-left: 1rem;
+}
+
+.btn-custom-2 {
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  background-color: white;
+  color: var(--base-color);
+  height: 3.5rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 2rem;
+  border-radius: 0.25rem;
+  font: 500 1.4rem var(--body-font);
+}

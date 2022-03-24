@@ -13,9 +13,12 @@ class SearchUser extends React.Component {
   userInfoBtn = event => {
     event.preventDefault()
 
-    this.props.displayCallback(1)
-
-    console.log(this.state.display)
+    if (username.value === '') {
+      console.log('Entrou aqui')
+      this.props.displayCallback(0)
+    } else {
+      this.props.displayCallback(1)
+    }
 
     GitHubUser.getByUsername(username.value).then(
       function (response) {
@@ -27,7 +30,11 @@ class SearchUser extends React.Component {
   userReposBtn = event => {
     event.preventDefault()
 
-    this.props.displayCallback(2)
+    if (username.value === '') {
+      this.props.displayCallback(0)
+    } else {
+      this.props.displayCallback(2)
+    }
 
     GitHubUser.getReposByUsername(username.value).then(
       function (response) {
@@ -39,7 +46,11 @@ class SearchUser extends React.Component {
   userStarredBtn = event => {
     event.preventDefault()
 
-    this.props.displayCallback(3)
+    if (username.value === '') {
+      this.props.displayCallback(0)
+    } else {
+      this.props.displayCallback(3)
+    }
 
     GitHubUser.getStarredByUsername(username.value).then(
       function (response) {
@@ -54,39 +65,43 @@ class SearchUser extends React.Component {
 
   render() {
     return (
-      <div className="jumbotron">
-        <h1>GitHub Search</h1>
+      <div className="jumbotron jumbotron-custom">
+        <div className="title-custom">
+          <h1>GitHub Search</h1>
+        </div>
         <div className="row">
           <form>
             <div className="form-group">
-              <label>Username</label>
+              <div className="subtitle-custom">
+                <label>Username</label>
+              </div>
               <input
                 type="text"
-                className="form-control"
+                className="form-control form-control-custom"
                 placeholder="guicardozodasilva"
                 onChange={this.saveUsername}
               />
             </div>
             <button
               type="submit"
-              className="btn btn-primary btn-lg"
+              className="btn btn-primary btn-custom"
               onClick={this.userInfoBtn}
             >
               Search user
             </button>
             <button
               type="submit"
-              className="btn btn-primary btn-lg"
+              className="btn btn-primary btn-custom"
               onClick={this.userReposBtn}
             >
               Repositories
             </button>
             <button
               type="submit"
-              className="btn btn-primary btn-lg"
+              className="btn btn-primary btn-custom"
               onClick={this.userStarredBtn}
             >
-              Starred repositories
+              Starred
             </button>
           </form>
         </div>

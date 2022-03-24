@@ -14,14 +14,16 @@ class UserStarred extends React.Component {
   render() {
     var starred = this.props.starred.map(function (star, key) {
       return (
-        <div key={key} className="thumbnail">
+        <div key={key} className="thumbnail thumbnail-custom">
           <div className="caption">
-            <h3>{star.name}</h3>
-            <p>{star.description}</p>
+            <div className="text-custom">
+              <h3>{star.name}</h3>
+            </div>
+            <p className="description-custom">{star.description}</p>
             <p>
               <a
                 href={star.html_url}
-                className="btn btn-primary"
+                className="btn btn-primary btn-custom"
                 target="_blank"
                 role="button"
               >
@@ -30,7 +32,7 @@ class UserStarred extends React.Component {
               <a
                 href={star.html_url + '/issues'}
                 target="_blank"
-                className="btn btn-default"
+                className="btn btn-default btn-custom-2"
                 role="button"
               >
                 Issues ({star.open_issues})
@@ -43,7 +45,9 @@ class UserStarred extends React.Component {
 
     return (
       <div>
-        <h2>{this.state.starredCount} starred repositories</h2>
+        <h2 className="text-custom">
+          {this.state.starredCount} starred repositories
+        </h2>
         {starred}
       </div>
     )

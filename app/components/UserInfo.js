@@ -3,23 +3,22 @@ import PropTypes from 'prop-types'
 
 function UserInfo(props) {
   var userInfo = props.user ? (
-    <div className="row">
-      <div className="col-lg-4">
+    <div className="thumbnail thumbnail-custom">
+      <div className="subtitle-custom">
         <img
-          className="img-circle"
+          className="img-circle img-custom"
           src={props.user.avatar_url}
           alt="avatar"
-          width="140"
-          height="140"
         />
-        <h2>{props.user.login}</h2>
-        <p>{props.user.name}</p>
+        <h2>{props.user.name}</h2>
+        <h3>{props.user.bio}</h3>
+        <p>{props.user.login}</p>
         <p>
           Followers: {props.user.followers} / Following: {props.user.following}
         </p>
         <p>
           <a
-            className="btn btn-default"
+            className="btn btn-primary btn-custom"
             href={props.user.html_url}
             target="_blank"
             role="button"
