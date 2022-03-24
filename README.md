@@ -22,6 +22,7 @@
 <p align="center">
  <a href="#-about-project">About</a> •
  <a href="#-how-to-run-the-project">How to run the project</a> • 
+ <a href="#-technologies">Technologies</a> • 
  <a href="#-author">Author</a> • 
  <a href="#-licence">Licence</a>
 </p>
@@ -46,9 +47,9 @@ $ git clone https://github.com/guicardozodasilva/github-api-search.git
 
 ---
 
-### 🛠 Tecnologias
+### 🛠 Technologies
 
-As seguintes ferramentas foram usadas na construção do projeto:
+The following tools were used in building the project:
 
 - [React](https://pt-br.reactjs.org/)
 - [Node.js](https://nodejs.org/en/)
