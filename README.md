@@ -45,6 +45,15 @@ $ git clone https://github.com/guicardozodasilva/github-api-search.git
 
 ```
 
+<p>or</>
+  
+```bash
+
+# Open the link below:
+  https://guicardozodasilva.github.io/github-api-search/
+
+```
+
 ---
 
 ### 🛠 Technologies
