@@ -65,7 +65,7 @@ $ git clone https://github.com/guicardozodasilva/github-api-search.git
 
 ---
 
-### 🛠 Technologies
+## 🛠 Technologies
 
 The following tools were used in building the project:
 
