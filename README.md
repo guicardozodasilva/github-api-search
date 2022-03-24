@@ -34,6 +34,14 @@ This project goals to consume the GitHub API using the ReactJS language, providi
 
 ---
 
+## ✅ Application Demo
+
+<h1 align="center">
+  <img alt="ApplicationDemo" title="#ApplicationDem" src="./assets/github api search.gif" />
+</h1>
+
+---
+
 ## 🚀 How to run the project
 
 ```bash
