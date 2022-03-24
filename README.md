@@ -21,6 +21,7 @@
 
 <p align="center">
  <a href="#-about-project">About</a> •
+  <a href="#-application-demo">App Demo</a> •
  <a href="#-how-to-run-the-project">How to run the project</a> • 
  <a href="#-technologies">Technologies</a> • 
  <a href="#-author">Author</a> • 
