@@ -13,49 +13,55 @@ class SearchUser extends React.Component {
   userInfoBtn = event => {
     event.preventDefault()
 
-    if (username.value === '') {
-      this.props.displayCallback(0)
-    } else {
-      this.props.displayCallback(1)
-    }
+    GitHubUser.getByUsername(username.value)
+      .then(
+        function (response) {
+          this.props.updateUser(response.data)
+        }.bind(this)
+      )
+      .catch(e => {
+        if (e.response.status === 404) {
+          this.props.displayCallback(4)
+        }
+      })
 
-    GitHubUser.getByUsername(username.value).then(
-      function (response) {
-        this.props.updateUser(response.data)
-      }.bind(this)
-    )
+    this.props.displayCallback(1)
   }
 
   userReposBtn = event => {
     event.preventDefault()
 
-    if (username.value === '') {
-      this.props.displayCallback(0)
-    } else {
-      this.props.displayCallback(2)
-    }
+    GitHubUser.getReposByUsername(username.value)
+      .then(
+        function (response) {
+          this.props.updateRepos(response.data)
+        }.bind(this)
+      )
+      .catch(e => {
+        if (e.response.status === 404) {
+          this.props.displayCallback(4)
+        }
+      })
 
-    GitHubUser.getReposByUsername(username.value).then(
-      function (response) {
-        this.props.updateRepos(response.data)
-      }.bind(this)
-    )
+    this.props.displayCallback(2)
   }
 
   userStarredBtn = event => {
     event.preventDefault()
 
-    if (username.value === '') {
-      this.props.displayCallback(0)
-    } else {
-      this.props.displayCallback(3)
-    }
+    GitHubUser.getStarredByUsername(username.value)
+      .then(
+        function (response) {
+          this.props.updateStarred(response.data)
+        }.bind(this)
+      )
+      .catch(e => {
+        if (e.response.status === 404) {
+          this.props.displayCallback(4)
+        }
+      })
 
-    GitHubUser.getStarredByUsername(username.value).then(
-      function (response) {
-        this.props.updateStarred(response.data)
-      }.bind(this)
-    )
+    this.props.displayCallback(3)
   }
 
   saveUsername = event => {

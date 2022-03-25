@@ -45,6 +45,12 @@ class Github extends React.Component {
       retorno = <UserRepos repos={this.state.repos} />
     } else if (this.state.display === 3) {
       retorno = <UserStarred starred={this.state.starred} />
+    } else if (this.state.display === 4) {
+      retorno = (
+        <div className="thumbnail thumbnail-custom">
+          <h2 className="text-custom">User not found</h2>
+        </div>
+      )
     }
 
     return (
