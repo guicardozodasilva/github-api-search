@@ -21,6 +21,7 @@
 
 <p align="center">
  <a href="#-about-project">About</a> •
+  <a href="#-application-demo">App Demo</a> •
  <a href="#-how-to-run-the-project">How to run the project</a> • 
  <a href="#-technologies">Technologies</a> • 
  <a href="#-author">Author</a> • 
@@ -31,6 +32,14 @@
 ## 💻 About Project 
 
 This project goals to consume the GitHub API using the ReactJS language, providing profile, repository and starred repository information of the user's typed.
+
+---
+
+## ✅ Application Demo
+
+<h1 align="center">
+  <img alt="ApplicationDemo" title="#ApplicationDem" src="./assets/github api search.gif" />
+</h1>
 
 ---
 
@@ -56,15 +65,16 @@ $ git clone https://github.com/guicardozodasilva/github-api-search.git
 
 ---
 
-### 🛠 Technologies
+## 🛠 Technologies
 
 The following tools were used in building the project:
 
-- [React](https://pt-br.reactjs.org/)
-- [Node.js](https://nodejs.org/en/)
-- [Axios](https://axios-http.com/docs/intro)
-- [CSS](https://www.google.com/search?q=css+official+documentation&rlz=1C1GCEA_enBR954BR954&oq=css+&aqs=chrome.0.69i59l4j0i433i512j69i60j69i61j69i60.956j0j4&sourceid=chrome&ie=UTF-8)
-- [HTML](https://www.google.com/search?q=html+official+documentation&rlz=1C1GCEA_enBR954BR954&sxsrf=APq-WBvCUIHzLE0YqDw_Jg-qj6lbYTmGdQ%3A1648155292459&ei=nNo8YunYG-TA5OUPs8aJmAE&ved=0ahUKEwjplvf10N_2AhVkILkGHTNjAhMQ4dUDCA4&uact=5&oq=html+official+documentation&gs_lcp=Cgdnd3Mtd2l6EAMyBAgjECcyBggAEAcQHjIFCAAQywFKBAhBGABKBAhGGABQAFiNA2DXC2gAcAF4AIABiwKIAb0HkgEDMi00mAEAoAEBwAEB&sclient=gws-wiz)
+- React
+- JavaScript
+- Node.js
+- Axios
+- CSS
+- HTML
 
 ---
 
