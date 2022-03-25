@@ -14,7 +14,6 @@ class SearchUser extends React.Component {
     event.preventDefault()
 
     if (username.value === '') {
-      console.log('Entrou aqui')
       this.props.displayCallback(0)
     } else {
       this.props.displayCallback(1)
