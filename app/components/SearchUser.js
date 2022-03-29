@@ -24,7 +24,6 @@ class SearchUser extends React.Component {
         if (e.response.status === 404) {
           this.props.displayCallback(4);
           this.props.updateUser(null);
-          console.log(e.response);
         }
       });
   };
