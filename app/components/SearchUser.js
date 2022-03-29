@@ -1,72 +1,73 @@
-import React from 'react'
-import GitHubUser from '../services/GitHubUser'
-import PropTypes from 'prop-types'
+import React from 'react';
+import GitHubUser from '../services/GitHubUser';
+import PropTypes from 'prop-types';
 
-let username = ''
+let username = '';
 
 class SearchUser extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = { value: '' }
+    super(props);
+    this.state = { value: '' };
   }
 
-  userInfoBtn = event => {
-    event.preventDefault()
+  userInfoBtn = (event) => {
+    event.preventDefault();
 
     GitHubUser.getByUsername(username.value)
       .then(
         function (response) {
-          this.props.updateUser(response.data)
-        }.bind(this)
+          this.props.displayCallback(1);
+          this.props.updateUser(response.data);
+        }.bind(this),
       )
-      .catch(e => {
+      .catch((e) => {
         if (e.response.status === 404) {
-          this.props.displayCallback(4)
+          this.props.displayCallback(4);
+          this.props.updateUser(null);
+          console.log(e.response);
         }
-      })
+      });
+  };
 
-    this.props.displayCallback(1)
-  }
-
-  userReposBtn = event => {
-    event.preventDefault()
+  userReposBtn = (event) => {
+    event.preventDefault();
 
     GitHubUser.getReposByUsername(username.value)
       .then(
         function (response) {
-          this.props.updateRepos(response.data)
-        }.bind(this)
+          this.props.displayCallback(2);
+          this.props.updateRepos(response.data);
+        }.bind(this),
       )
-      .catch(e => {
+      .catch((e) => {
         if (e.response.status === 404) {
-          this.props.displayCallback(4)
+          this.props.displayCallback(4);
+          this.props.updateRepos([]);
         }
-      })
+      });
+  };
 
-    this.props.displayCallback(2)
-  }
-
-  userStarredBtn = event => {
-    event.preventDefault()
+  userStarredBtn = (event) => {
+    event.preventDefault();
 
     GitHubUser.getStarredByUsername(username.value)
       .then(
         function (response) {
-          this.props.updateStarred(response.data)
-        }.bind(this)
+          this.props.displayCallback(3);
+          this.props.updateStarred(response.data);
+        }.bind(this),
       )
-      .catch(e => {
+      .catch((e) => {
         if (e.response.status === 404) {
-          this.props.displayCallback(4)
+          this.props.displayCallback(4);
+          this.props.updateStarred([]);
         }
-      })
+      });
+  };
 
-    this.props.displayCallback(3)
-  }
-
-  saveUsername = event => {
-    username = { value: event.target.value }
-  }
+  saveUsername = (event) => {
+    username = { value: event.target.value };
+  };
 
   render() {
     return (
@@ -111,7 +112,7 @@ class SearchUser extends React.Component {
           </form>
         </div>
       </div>
-    )
+    );
   }
 }
 
@@ -119,7 +120,7 @@ SearchUser.propTypes = {
   updateUser: PropTypes.func.isRequired,
   updateRepos: PropTypes.func.isRequired,
   updateStarred: PropTypes.func.isRequired,
-  displayCallback: PropTypes.func.isRequired
-}
+  displayCallback: PropTypes.func.isRequired,
+};
 
-export default SearchUser
+export default SearchUser;
